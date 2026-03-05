@@ -16,13 +16,14 @@ class elem_1d_2n:public elemento{
 public:
     //                    ┌1 dim
     //                    |  ┌2 nodos
-    elem_1d_2n(vector<int> indices, vector<vector<double> > posiciones, vector<vector<double> > D, double cond_neumann_=0.0):elemento(1, 2, "lineal"){
-        nodos.n_dims=1;
-        nodos.n_nodos=2;
-        nodos.indices=indices;
-        nodos.posiciones=posiciones;
-        material.cond_neuman=cond_neumann_;
+    elem_1d_2n(vector<int> indices, vector<struct nodo*> nodos_, vector<vector<double> > D, double cond_neumann_=0.0):elemento(1, 2, "lineal"){
+        nodos=nodos_;
+        nodos_posiciones=vector<vector<double> >(2, vector<double>(1, 0.0));
+        for(int i=0;i<2;i++){
+            nodos_posiciones[i]=nodos[i]->posicion;
+        }
         material.D=D;
+        material.cond_neuman=cond_neumann_;
     }
 
     vector<double> Ns(const vector<double> rho) const override;

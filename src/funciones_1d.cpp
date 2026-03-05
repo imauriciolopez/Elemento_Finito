@@ -29,6 +29,7 @@ vector<vector<double> > elem_1d_2n::matriz_rigidez_elemental() const{
 
     //iteramos sobre todos los puntos de gauss
     for(int punto_gauss=0;punto_gauss<n_nodos-1;punto_gauss++){
+        
         //                                                                     ┌calculamos "de golpe" el jacobiano, su inversa y su determinante
         tuple<double, vector<vector<double> >, vector<vector<double> > > inf_J=crear_J(get<0>(g_q)[punto_gauss]);
         
@@ -36,20 +37,21 @@ vector<vector<double> > elem_1d_2n::matriz_rigidez_elemental() const{
         //                        |                   ┌inversa del jacobiano
         //                        |                   |              ┌matriz de derivadas
         vector<vector<double> > B=multiplicar<double>(get<2>(inf_J), DNs(get<0>(g_q)[punto_gauss]));
-
-        //la evaluaciond elas funciones de forma debe ser nD---------------------------------------------
-        //                              ┌calculamos el producto B^T D B det|J| w_p para el punto de gauss actual
-        vector<vector<double> > B_T_D_B=multiplicar<double>(
-                                            multiplicar<double>(transpuesta<double>(B), multiplicar<double>(material.D, B)),//multiplicamos B^T D B
-                                            get<0>(inf_J)*get<1>(g_q)[punto_gauss]//multiplicamos los escalares det|J| y w_p          
-                                        );
+        
+        //                      ┌calculamos el producto D B
+        vector<vector<double> > D_B=multiplicar<double>(material.D, B);
+        //                      ┌calculamos el producto B_T D B
+        vector<vector<double> > B_T_D_B=multiplicar<double>(transpuesta<double>(B), D_B);
+        //                      ┌calculamos el producto B_T D B det|J| w_p
+        vector<vector<double> > B_T_D_B_detJ_W=multiplicar<double>(B_T_D_B, get<0>(inf_J)*get<1>(g_q)[punto_gauss]);
         
         //sumamos punto por punto la matriz K obtenida a la matriz de rigidez elemental
         for(int i=0;i<n_nodos;i++){
             for(int j=0;j<n_nodos;j++){
-                k_local[i][j]+=B_T_D_B[i][j];
+                k_local[i][j]+=B_T_D_B_detJ_W[i][j];
             }
         }
+        
     }
     
     //regresamos la matriz de rigidez elemental ya formada
@@ -64,7 +66,8 @@ vector<double> elem_1d_2n::vector_fuerza_elemental() const{
     //                      ┌inicializamos el vector de fuerza elemental en ceros
     vector<double> f_local(n_nodos, 0.0);
     
-   for(int punto_gauss=0;punto_gauss<max(n_nodos-1, 1);punto_gauss++){
+   for(int punto_gauss=0;punto_gauss<n_nodos-1;punto_gauss++){
+        
         vector<double> mat_derivadas=Ns(get<0>(g_q)[punto_gauss]);
         tuple<double, vector<vector<double> >, vector<vector<double> > > inf_J=crear_J(get<0>(g_q)[punto_gauss]);
 

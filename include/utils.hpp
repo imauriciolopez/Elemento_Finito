@@ -75,6 +75,18 @@ template <typename T> vector<vector<T> > transpuesta(const vector<vector<T>> A){
 
 tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > mat, double toler=1e-12);
 
+struct nodo{
+    int id;
+    vector<double> posicion;
+    tuple<bool, double> cond_dirichlet;
+
+    nodo(int id=0, vector<double> pos=vector<double>{}, bool estado=false, double temp=0.0): posicion(pos){
+        cond_dirichlet=make_tuple(estado, temp);
+    }
+
+    ~nodo(){}
+};
+
 struct nodos{
     int n_dims;
     int n_nodos;
@@ -114,9 +126,10 @@ public:
     string geometria;
     int n_dims;
     int n_nodos;
-    struct nodos nodos;
+    vector<struct nodo*> nodos;
     struct material material;
     double Q;
+    vector<vector<double> > nodos_posiciones;
 
 
     elemento(int dims, int nodos, string geo):n_dims(dims), n_nodos(nodos), geometria(geo){}
@@ -133,7 +146,7 @@ public:
 
     //recibe un apuntador de double 
     tuple<double, vector<vector<double> >, vector<vector<double> > > crear_J(vector<double> rho) const{
-        vector<vector<double> > J=multiplicar<double>(DNs(rho, true), nodos.posiciones);
+        vector<vector<double> > J=multiplicar<double>(DNs(rho, true), nodos_posiciones);
 
         tuple<double, vector<vector<double> > > det_J_inv=invertir_matriz(J);
 
