@@ -14,12 +14,14 @@ void hello_world_funciones();
 
 class elem_1d_2n:public elemento{
 public:
-    //                    ┌1 dim
-    //                    |  ┌2 nodos
-    elem_1d_2n(vector<int> indices, vector<struct nodo*> nodos_, vector<vector<double> > D, double cond_neumann_=0.0):elemento(1, 2, "lineal"){
+    //                                                                                                                         ┌1 dim
+    //                                                                                                                         |  ┌2 nodos
+    //                                                                                                                         |  |  ┌2 ptos de integracion de funciones de forma
+    //                                                                                                                         |  |  |  ┌1 pto de integracion de derivadas de funciones de forma
+    elem_1d_2n(vector<int> indices, vector<struct nodo*> nodos_, vector<vector<double> > D, double cond_neumann_=0.0):elemento(1, 2, 2, 1, "lineal"){
         nodos=nodos_;
         nodos_posiciones=vector<vector<double> >(2, vector<double>(1, 0.0));
-        for(int i=0;i<2;i++){
+        for(int i=0;i<n_nodos;i++){
             nodos_posiciones[i]=nodos[i]->posicion;
         }
         material.D=D;
@@ -29,10 +31,27 @@ public:
     vector<double> Ns(const vector<double> rho) const override;
 
     vector<vector<double> > DNs(const vector<double> rho, bool transposicion=true) const override;
+};
 
-    vector<vector<double> > matriz_rigidez_elemental() const override;
+class elem_1d_3n:public elemento{
+public:
+    //                                                                                                                         ┌1 dim
+    //                                                                                                                         |  ┌3 nodos
+    //                                                                                                                         |  |  ┌3 ptos de integracion de funciones de forma
+    //                                                                                                                         |  |  |  ┌2 pto de integracion de derivadas de funciones de forma
+    elem_1d_3n(vector<int> indices, vector<struct nodo*> nodos_, vector<vector<double> > D, double cond_neumann_=0.0):elemento(1, 3, 3, 2, "lineal"){
+        nodos=nodos_;
+        nodos_posiciones=vector<vector<double> >(n_nodos, vector<double>(n_dims, 0.0));
+        for(int i=0;i<n_nodos;i++){
+            nodos_posiciones[i]=nodos[i]->posicion;
+        }
+        material.D=D;
+        material.cond_neuman=cond_neumann_;
+    }
 
-    vector<double> vector_fuerza_elemental() const override;
+    vector<double> Ns(const vector<double> rho) const override;
+
+    vector<vector<double> > DNs(const vector<double> rho, bool transposicion=true) const override;
 };
 
 

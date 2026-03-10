@@ -80,7 +80,7 @@ struct nodo{
     vector<double> posicion;
     tuple<bool, double> cond_dirichlet;
 
-    nodo(int id=0, vector<double> pos=vector<double>{}, bool estado=false, double temp=0.0): posicion(pos){
+    nodo(int id_=0, vector<double> pos=vector<double>{}, bool estado=false, double temp=0.0): id(id_), posicion(pos){
         cond_dirichlet=make_tuple(estado, temp);
     }
 
@@ -126,18 +126,15 @@ public:
     string geometria;
     int n_dims;
     int n_nodos;
+    int n_ptos_gauss_fuerza;
+    int n_ptos_gauss_rigidez;
     vector<struct nodo*> nodos;
     struct material material;
     double Q;
     vector<vector<double> > nodos_posiciones;
 
 
-    elemento(int dims, int nodos, string geo):n_dims(dims), n_nodos(nodos), geometria(geo){}
-
-    //┌virtual hace que la declaración del método exista en la clase padre, pero se tiene que definir en cada clase hijo
-    //|                                                       ┌const significa que no va a cambiar el objeto original
-    virtual vector<vector<double> > matriz_rigidez_elemental() const=0;
-    virtual vector<double> vector_fuerza_elemental() const=0;
+    elemento(int dims, int nodos, int n_ptos_gauss_rigidez_, int n_ptos_gauss_fuerza_, string geo):n_dims(dims), n_nodos(nodos), geometria(geo), n_ptos_gauss_rigidez(n_ptos_gauss_rigidez_), n_ptos_gauss_fuerza(n_ptos_gauss_fuerza_){}
 
     virtual vector<double> Ns(const vector<double> rho) const=0;
     virtual vector<vector<double> > DNs(const vector<double> rho, bool transposicion) const=0;
@@ -145,13 +142,12 @@ public:
     //cambiar rho para que reciba varios puntos
 
     //recibe un apuntador de double 
-    tuple<double, vector<vector<double> >, vector<vector<double> > > crear_J(vector<double> rho) const{
-        vector<vector<double> > J=multiplicar<double>(DNs(rho, true), nodos_posiciones);
+    tuple<double, vector<vector<double> >, vector<vector<double> > > crear_J(vector<double> rho) const;
 
-        tuple<double, vector<vector<double> > > det_J_inv=invertir_matriz(J);
-
-        return make_tuple(get<0>(det_J_inv), J, get<1>(det_J_inv));
-    }
+    //┌virtual hace que la declaración del método exista en la clase padre, pero se tiene que definir en cada clase hijo
+    //|                                                       ┌const significa que no va a cambiar el objeto original
+    vector<vector<double> > matriz_rigidez_elemental() const;
+    vector<double> vector_fuerza_elemental() const;
 
     virtual ~elemento() {}
 };

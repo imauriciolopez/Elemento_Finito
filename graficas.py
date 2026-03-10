@@ -53,7 +53,7 @@ fig, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(5, figsize=(8, 4), sharex=False)
 fig.suptitle(r'Valores de $\phi$ para diferente cantidad de nodos')
 
 axes=[ax1, ax2, ax3, ax4, ax5]
-indices=[0, 10, 250, 375, 500]
+indices=[0, int(len(temps)*0.1), int(len(temps)*0.5), int(len(temps)*0.75), len(temps)-1]
 titles=[f"{indices[0]} nodos", 
         f"{indices[1]} nodos", 
         f"{indices[2]} nodos", 
