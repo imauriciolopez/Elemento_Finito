@@ -24,7 +24,7 @@ tuple<vector<struct nodo*>, vector<elemento*> > lector_dat(const string& dat_fil
         return make_tuple(vector<struct nodo*>{}, vector<elemento*>{});
     }
 
-    int dimensiones, n_nodos_p_elemento, n_elems, n_mats, n_nodos, n_conds_dirichlet, n_conds_neuman_lin, n_conds_neuman_plan, buff_i;
+    int dimensiones, n_nodos_p_elemento, n_elems, n_mats, n_nodos, n_conds_dirichlet, n_conds_neuman_lin, n_conds_neuman_plan, n_conds_neuman_vol, buff_i;
     double buff_d;
     string line, buff_string;
     bool inverse;
@@ -184,6 +184,24 @@ tuple<vector<struct nodo*>, vector<elemento*> > lector_dat(const string& dat_fil
         get<1>(conds_neuman_plan[i])=buff_d;
         conds_neuman_plan_comp[buff_i-1]=buff_d;
     }
+
+    getline(archivo, line);                //# Fuente volumétrica
+    getline(archivo, line);                //# Número de condiciones
+    getline(archivo, line);                //(n conds)
+    istringstream l_15(line);                 
+    l_15>>n_conds_neuman_vol;
+    vector<tuple<int, double> > conds_neuman_vol(n_conds_neuman_vol);
+    vector<double> conds_neuman_vol_comp(n_elems, 0.0);
+    getline(archivo, line);                //# Listado de condiciones
+    getline(archivo, line);                //# Element Heat
+    for(int i=0;i<n_conds_neuman_vol;i++){
+        getline(archivo, line);            //(n_elem, calor)
+        istringstream l_16(line);
+        l_16>>buff_i>>buff_d;
+        get<0>(conds_neuman_vol[i])=buff_i;
+        get<1>(conds_neuman_vol[i])=buff_d;
+        conds_neuman_vol_comp[buff_i-1]=buff_d;
+    }
     
     //---------------------------------------------------------------------
     //TERMINA LA LECTURA DEL ARCHIVO, EMPIEZA LA CREACIÓN DE LOS ELEMENTOS
@@ -289,8 +307,25 @@ tuple<vector<struct nodo*>, vector<elemento*> > lector_dat(const string& dat_fil
         }
         //caso elemento triangular
         else if(nodos_de_elementos[i][nodos_de_elementos[i].size()-1]==1){
-            cout<<"NO HAY IMPLEMENTACIÓN DE ELEMENTOS TRRIANGULARES"<<endl;
-            return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+            if(nodos_de_elementos[i].size()<4){
+                cout<<"NO SE CAPTURARON LOS NODOS CORRECTAMENTE"<<endl;
+                return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+            }
+            //elementos 3 nodos
+            else if(nodos_de_elementos[i].size()==4){
+                nodos_de_elementos[i].pop_back();
+                elementos[i]=new elem_2d_3n(nodos_de_elementos[i], 
+                                            vector<struct nodo*>{nodos[nodos_de_elementos[i][0]-1], 
+                                                                 nodos[nodos_de_elementos[i][1]-1],
+                                                                 nodos[nodos_de_elementos[i][2]-1]
+                                            }, 
+                                            eye<double>(materiales[materiales_por_elemento[i]-1][0], dimensiones), 
+                                            conds_neuman_plan_comp[i]);
+            }
+            else{
+                cout<<"NO SE CAPTURARON LOS NODOS CORRECTAMENTE"<<endl;
+                return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+            }
         }
         //caso elemento cuadrático
         else if(nodos_de_elementos[i][nodos_de_elementos[i].size()-1]==2){
@@ -303,9 +338,27 @@ tuple<vector<struct nodo*>, vector<elemento*> > lector_dat(const string& dat_fil
             return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
         }
         //caso elemento Tetrahedra
-        else if(nodos_de_elementos[i][nodos_de_elementos[i].size()-1]==2){
-            cout<<"NO HAY IMPLEMENTACIÓN DE ELEMENTOS TETRAHÉDRICOS"<<endl;
-            return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+        else if(nodos_de_elementos[i][nodos_de_elementos[i].size()-1]==4){
+            if(nodos_de_elementos[i].size()<5){
+                cout<<"NO SE CAPTURARON LOS NODOS CORRECTAMENTE"<<endl;
+                return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+            }
+            //elementos 3 nodos
+            else if(nodos_de_elementos[i].size()==5){
+                nodos_de_elementos[i].pop_back();
+                elementos[i]=new elem_3d_4n(nodos_de_elementos[i], 
+                                            vector<struct nodo*>{nodos[nodos_de_elementos[i][0]-1], 
+                                                                 nodos[nodos_de_elementos[i][1]-1],
+                                                                 nodos[nodos_de_elementos[i][2]-1],
+                                                                 nodos[nodos_de_elementos[i][3]-1]
+                                            }, 
+                                            eye<double>(materiales[materiales_por_elemento[i]-1][0], dimensiones), 
+                                            conds_neuman_vol_comp[i]);
+            }
+            else{
+                cout<<"NO SE CAPTURARON LOS NODOS CORRECTAMENTE"<<endl;
+                return make_tuple(vector<struct nodo*>{}, vector<elemento*>{}); 
+            }
         }
         //caso elemento Hexahedra
         else if(nodos_de_elementos[i][nodos_de_elementos[i].size()-1]==2){

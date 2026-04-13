@@ -68,6 +68,7 @@ vector<double> factorizacion_choleski_llt(vector<vector<double> > arri, vector<d
 tuple<vector<vector<double> >, vector<double> > puntos_pesos_gauss(int n, string geo){
     //FORMATO:                     PUNTO               PESO
     if(geo=="lineal"){
+        //obtenidas de https://pomax.github.io/bezierinfo/legendre-gauss.html
         switch(n){
             case(1):{
                 //elem 1
@@ -232,10 +233,145 @@ tuple<vector<vector<double> >, vector<double> > puntos_pesos_gauss(int n, string
         }
     }
     else if(geo=="triangular"){
-        return make_tuple(vector<vector<double> >{{}}, vector<double>{});
+        //obtenidas de https://people.sc.fsu.edu/~jburkardt/datasets/quadrature_rules_tri/quadrature_rules_tri.html
+        switch(n){
+            case(1):{
+                vector<vector<double> >elem_1{vector<double>{0.33333333333333333333, 0.33333333333333333333}};
+                vector<double> elem_2{1.00000000000000000000};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(3):{//STRANG1
+                vector<vector<double> >elem_1{vector<double>{0.66666666666666666667,  0.16666666666666666667},
+                                              vector<double>{0.16666666666666666667,  0.66666666666666666667},
+                                              vector<double>{0.16666666666666666667,  0.16666666666666666667}};
+                vector<double> elem_2{0.33333333333333333333,
+                                      0.33333333333333333333,
+                                      0.33333333333333333333};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(4):{
+                vector<vector<double> >elem_1{vector<double>{0.33333333333333333333,  0.33333333333333333333},
+                                              vector<double>{0.60000000000000000000,  0.20000000000000000000},
+                                              vector<double>{0.20000000000000000000,  0.60000000000000000000},
+                                              vector<double>{0.20000000000000000000,  0.20000000000000000000}};
+                vector<double> elem_2{-0.56250000000000000000,
+                                       0.52083333333333333333,
+                                       0.52083333333333333333,
+                                       0.52083333333333333333};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(6):{//STRANG4
+                vector<vector<double> >elem_1{vector<double>{0.659027622374092,  0.231933368553031},
+                                              vector<double>{0.659027622374092,  0.109039009072877},
+                                              vector<double>{0.231933368553031,  0.659027622374092},
+                                              vector<double>{0.231933368553031,  0.109039009072877},
+                                              vector<double>{0.109039009072877,  0.659027622374092},
+                                              vector<double>{0.109039009072877,  0.231933368553031}};
+                vector<double> elem_2{0.16666666666666666667,
+                                      0.16666666666666666667,
+                                      0.16666666666666666667,
+                                      0.16666666666666666667,
+                                      0.16666666666666666667,
+                                      0.16666666666666666667};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(7):{//STRANG6
+                vector<vector<double> >elem_1{vector<double>{0.333333333333333,  0.333333333333333},
+                                              vector<double>{0.736712498968435,  0.237932366472434},
+                                              vector<double>{0.736712498968435,  0.025355134551932},
+                                              vector<double>{0.237932366472434,  0.736712498968435},
+                                              vector<double>{0.237932366472434,  0.025355134551932},
+                                              vector<double>{0.025355134551932,  0.736712498968435},
+                                              vector<double>{0.025355134551932,  0.237932366472434}};
+                vector<double> elem_2{0.375000000000000,
+                                      0.104166666666667,
+                                      0.104166666666667,
+                                      0.104166666666667,
+                                      0.104166666666667,
+                                      0.104166666666667,
+                                      0.104166666666667};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(9):{//STRANG8
+                vector<vector<double> >elem_1{vector<double>{0.124949503233232,  0.437525248383384},
+                                              vector<double>{0.437525248383384,  0.124949503233232},
+                                              vector<double>{0.437525248383384,  0.437525248383384},
+                                              vector<double>{0.797112651860071,  0.165409927389841},
+                                              vector<double>{0.797112651860071,  0.037477420750088},
+                                              vector<double>{0.165409927389841,  0.797112651860071},
+                                              vector<double>{0.165409927389841,  0.037477420750088},
+                                              vector<double>{0.037477420750088,  0.797112651860071},
+                                              vector<double>{0.037477420750088,  0.165409927389841}};
+                vector<double> elem_2{0.205950504760887,
+                                      0.205950504760887,
+                                      0.205950504760887,
+                                      0.063691414286223,
+                                      0.063691414286223,
+                                      0.063691414286223,
+                                      0.063691414286223,
+                                      0.063691414286223,
+                                      0.063691414286223};
+                return make_tuple(elem_1, elem_2);
+            }
+            default:{return make_tuple(vector<vector<double> >{{}}, vector<double>{});}
+        }
     }
     else if(geo=="tetrahedrica"){
-        return make_tuple(vector<vector<double> >{{}}, vector<double>{});
+        switch(n){//obtenidas de https://people.sc.fsu.edu/~jburkardt/datasets/quadrature_rules_tet/quadrature_rules_tet.html
+            case(1):{//keast0
+                vector<vector<double> >elem_1{vector<double>{0.2500000000000000,  0.2500000000000000,  0.2500000000000000}};
+                vector<double> elem_2{1.0000000000000000};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(4):{//keast1
+                vector<vector<double> >elem_1{vector<double>{0.5854101966249685,  0.1381966011250105,  0.1381966011250105},
+                                              vector<double>{0.1381966011250105,  0.1381966011250105,  0.1381966011250105},
+                                              vector<double>{0.1381966011250105,  0.1381966011250105,  0.5854101966249685},
+                                              vector<double>{0.1381966011250105,  0.5854101966249685,  0.1381966011250105}};
+                vector<double> elem_2{0.250000000000000000,
+                                      0.250000000000000000,
+                                      0.250000000000000000,
+                                      0.250000000000000000};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(5):{//keast2
+                vector<vector<double> >elem_1{vector<double>{0.2500000000000000,  0.2500000000000000,  0.2500000000000000},
+                                              vector<double>{0.5000000000000000,  0.1666666666666667,  0.1666666666666667},
+                                              vector<double>{0.1666666666666667,  0.1666666666666667,  0.1666666666666667},
+                                              vector<double>{0.1666666666666667,  0.1666666666666667,  0.5000000000000000},
+                                              vector<double>{0.1666666666666667,  0.5000000000000000,  0.1666666666666667}};
+                vector<double> elem_2{-0.8000000000000000,
+                                       0.4500000000000000,
+                                       0.4500000000000000,
+                                       0.4500000000000000,
+                                       0.4500000000000000};
+                return make_tuple(elem_1, elem_2);
+            }
+            case(10):{//keast3
+                vector<vector<double> >elem_1{vector<double>{0.5684305841968444,  0.1438564719343852,  0.1438564719343852},
+                                              vector<double>{0.1438564719343852,  0.1438564719343852,  0.1438564719343852},
+                                              vector<double>{0.1438564719343852,  0.1438564719343852,  0.5684305841968444},
+                                              vector<double>{0.1438564719343852,  0.5684305841968444,  0.1438564719343852},
+                                              vector<double>{0.0000000000000000,  0.5000000000000000,  0.5000000000000000},
+                                              vector<double>{0.5000000000000000,  0.0000000000000000,  0.5000000000000000},
+                                              vector<double>{0.5000000000000000,  0.5000000000000000,  0.0000000000000000},
+                                              vector<double>{0.5000000000000000,  0.0000000000000000,  0.0000000000000000},
+                                              vector<double>{0.0000000000000000,  0.5000000000000000,  0.0000000000000000},
+                                              vector<double>{0.0000000000000000,  0.0000000000000000,  0.5000000000000000}};
+                vector<double> elem_2{0.2177650698804054,
+                                      0.2177650698804054,
+                                      0.2177650698804054,
+                                      0.2177650698804054,
+                                      0.0214899534130631,
+                                      0.0214899534130631,
+                                      0.0214899534130631,
+                                      0.0214899534130631,
+                                      0.0214899534130631,
+                                      0.0214899534130631};
+                return make_tuple(elem_1, elem_2);
+            }
+            default:{return make_tuple(vector<vector<double> >{{}}, vector<double>{});}
+        }
     }
     else if(geo=="piramidal"){
         return make_tuple(vector<vector<double> >{{}}, vector<double>{});

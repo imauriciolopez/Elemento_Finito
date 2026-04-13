@@ -29,6 +29,24 @@ vector<vector<double> > elem_1d_3n::DNs(const vector<double> rho, bool transposi
     else return vector<vector<double> > {{(2*rho[0]-1.0)/2.0}, {-2.0*rho[0]}, {(2*rho[0]+1.0)/2.0}};
 }
 
+vector<double> elem_2d_3n::Ns(const vector<double> rho) const{
+    return {{1-rho[0]-rho[1], rho[0], rho[1]}};
+}
+
+vector<vector<double> > elem_2d_3n::DNs(const vector<double> rho, bool transposicion) const{
+    if(transposicion) return vector<vector<double> > {{-1, 1, 0}, {-1, 0, 1}};
+    else return vector<vector<double> > {{-1, -1}, {1, 0}, {0, 1}};
+}
+
+vector<double> elem_3d_4n::Ns(const vector<double> rho) const{
+    return {{1-rho[0]-rho[1]-rho[2], rho[0], rho[1], rho[2]}};
+}
+
+vector<vector<double> > elem_3d_4n::DNs(const vector<double> rho, bool transposicion) const{
+    if(transposicion) return vector<vector<double> > {{-1, 1, 0, 0}, {-1, 0, 1, 0}, {-1, 0, 0, 1}};
+    else return vector<vector<double> > {{-1, -1, -1}, {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+}
+
 /*
 LEGACY
 vector<vector<double> > mat_calor(int n, double l, double k){
