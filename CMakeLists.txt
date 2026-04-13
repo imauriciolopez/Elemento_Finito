@@ -10,6 +10,7 @@ include_directories(include)
 
 add_library(fem_libs
     src/funciones_1d.cpp
+    src/gid_coupler.cpp
     src/utils.cpp
 )
 

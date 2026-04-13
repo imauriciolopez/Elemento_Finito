@@ -1,2 +1,2 @@
-/usr/bin/ar qc libfem_libs.a CMakeFiles/fem_libs.dir/src/funciones_1d.cpp.o CMakeFiles/fem_libs.dir/src/utils.cpp.o
+/usr/bin/ar qc libfem_libs.a CMakeFiles/fem_libs.dir/src/funciones_1d.cpp.o CMakeFiles/fem_libs.dir/src/gid_coupler.cpp.o CMakeFiles/fem_libs.dir/src/utils.cpp.o
 /usr/bin/ranlib libfem_libs.a

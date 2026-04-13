@@ -37,6 +37,7 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/gethostuuid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/arm/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/locale.h \
@@ -73,12 +74,21 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_rwlockattr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_symbol_aliasing.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_clock_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ct_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_clr.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_copy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_def.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_isset.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_setsize.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_zero.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_gid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_id_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_int16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_int32_t.h \
@@ -91,12 +101,14 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_posix_vdisable.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_seek_set.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigaltstack.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigset_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_size_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ssize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_suseconds_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_time_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timespec.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timeval.h \
@@ -107,6 +119,8 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ucontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_uid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_useconds_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_va_list.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_wchar_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_wint_t.h \
@@ -115,18 +129,26 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/resource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/select.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/syslimits.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/unistd.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/wait.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/unistd.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/wctype.h \
-  /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/utils.hpp \
   /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/funciones_1d.hpp \
   /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/utils.hpp \
+  /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/funciones_1d.hpp \
+  /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/gid_coupler.hpp \
+  /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/utils.hpp \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/atomic_word.h \
+  /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/basic_file.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++allocator.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++config.h \
+  /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++io.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++locale.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/cpu_defines.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/ctype_base.h \
@@ -146,6 +168,7 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/basic_string.tcc \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/char_traits.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/charconv.h \
+  /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/codecvt.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/concept_check.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/cpp_type_traits.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/cxxabi_forced.h \
@@ -155,6 +178,7 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/exception.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/exception_defines.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/exception_ptr.h \
+  /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/fstream.tcc \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/functexcept.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/functional_hash.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/hash_bytes.h \
@@ -236,6 +260,7 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ext/numeric_traits.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ext/string_conversions.h \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ext/type_traits.h \
+  /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/fstream \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/initializer_list \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ios \
   /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/iosfwd \
@@ -371,8 +396,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/vector.tcc:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/utility.h:
-
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/uses_allocator_args.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/unordered_map.h:
@@ -393,17 +416,35 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_iterator_base_funcs.h:
 
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_iterator.h:
+
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_function.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_bvector.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_algobase.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/specfun.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/refwrap.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/uses_allocator.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ranges_cmp.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ranges_util.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/random.tcc:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_algobase.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/random.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/nested_exception.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/predefined_ops.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/postypes.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream_insert.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream.tcc:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/cstdio:
 
@@ -425,19 +466,15 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/exception_defines.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_setsize.h:
+
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/exception.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/erase_if.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_int16_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/select.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/cxxabi_init_exception.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/uses_allocator.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ranges_cmp.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/cxxabi_forced.h:
 
@@ -473,13 +510,15 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/concept_check.h:
 
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/codecvt.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/pthread/pthread_impl.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++config.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/atomic_word.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/basic_file.h:
 
-/Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/funciones_1d.hpp:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/atomic_word.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/streambuf.tcc:
 
@@ -489,9 +528,13 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/utils.hpp:
 
+/Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/funciones_1d.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/wctype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/syslimits.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++allocator.h:
 
@@ -506,8 +549,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/signal.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_wint_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_wchar_t.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/stdexcept:
 
@@ -541,23 +582,45 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_timespec.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_time_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_wchar_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_suseconds_t.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/poly_laguerre.tcc:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ext/numeric_traits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ssize_t.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_locale_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_size_t.h:
 
+/Users/imauriciolopez/Google\ Drive/Mi\ unidad/codigos_en_c/FEM/include/gid_coupler.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_seek_set.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/locale.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/beta_function.tcc:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ranges_base.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ptr_traits.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/std_abs.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/types.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_posix_vdisable.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_pid_t.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/max_size_type.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_construct.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/resource.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_off_t.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/basic_ios.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/unistd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_null.h:
 
@@ -567,11 +630,19 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_mach_port_t.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/refwrap.h:
-
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/allocator.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_def.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_intptr_t.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/lib/gcc/current/gcc/aarch64-apple-darwin24/15/include-fixed/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/pthread/sched.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/fstream.tcc:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_zero.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/mach/arm/_structs.h:
 
@@ -579,9 +650,17 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/_endian.h:
 
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/utility.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_gid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_isset.h:
+
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/type_traits:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/cpp_type_traits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_useconds_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_rune_t.h:
 
@@ -590,12 +669,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/malloc/_ptrcheck.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_errno_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_construct.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_off_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/resource.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_dev_t.h:
 
@@ -613,6 +686,16 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_symbol_aliasing.h:
 
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/riemann_zeta.tcc:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/enable_special_members.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ctype.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/malloc/_malloc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_select.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/qos.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_t.h:
@@ -620,6 +703,12 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_types.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_once_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_pid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_mutexattr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/unistd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/wait.h:
 
@@ -631,12 +720,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tuple:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityInternalLegacy.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigset_t.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/__endian.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/requires_hosted.h:
@@ -644,12 +727,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/stdint.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_cond_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/lib/gcc/current/gcc/aarch64-apple-darwin24/15/include-fixed/stdio.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/pthread/sched.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/max_size_type.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/basic_string.tcc:
 
@@ -665,11 +742,11 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_posix_availability.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_iterator.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_set.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/_OSByteOrder.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/_types.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/types.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_clr.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/iterator_concepts.h:
 
@@ -677,7 +754,9 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/signal.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/postypes.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_int16_t.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/stl_vector.h:
 
@@ -705,6 +784,8 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_abort.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_uuid_t.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/_mcontext.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/iostream:
@@ -721,23 +802,17 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_mutex_t.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/beta_function.tcc:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/types.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ptr_traits.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/mach/machine/_structs.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/aarch64-apple-darwin24/bits/c++io.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/Availability.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/poly_laguerre.tcc:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/std_abs.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/ext/numeric_traits.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ranges_base.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ssize_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream_insert.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/locale.h:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/range_access.h:
 
@@ -747,17 +822,13 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/endian.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/machine/types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/libkern/_OSByteOrder.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigaltstack.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/malloc/_malloc.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/ctype.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/random.h:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_ct_rune_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/specfun.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
@@ -769,17 +840,11 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/_endian.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/ostream.tcc:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_time.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/alloca.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_time_t.h:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tr1/riemann_zeta.tcc:
-
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/enable_special_members.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/gethostuuid.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint16_t.h:
 
@@ -797,6 +862,8 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_wctype_t.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_fd_copy.h:
+
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/string_view.tcc:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/_types/_uint8_t.h:
@@ -813,11 +880,17 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/runetype.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_types/_sigset_t.h:
+
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/tuple:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityInternalLegacy.h:
+
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/localefwd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/sys/_endian.h:
 
-/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/predefined_ops.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/fstream:
 
 /opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/node_handle.h:
 
@@ -831,6 +904,6 @@ CMakeFiles/main_exec.dir/main/fem.cpp.o: /Users/imauriciolopez/Google\ Drive/Mi\
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityVersions.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/arm/_types.h:
+/opt/homebrew/Cellar/gcc/15.1.0/include/c++/15/bits/nested_exception.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/AvailabilityInternal.h:

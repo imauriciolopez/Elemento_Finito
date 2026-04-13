@@ -73,7 +73,19 @@ template <typename T> vector<vector<T> > transpuesta(const vector<vector<T>> A){
     return C;
 }
 
-tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > mat, double toler=1e-12);
+template <typename T> vector<vector<T> > eye(T data, int n){
+    vector<vector<T> > I(n, vector<T>(n, (T)0.0));
+    for(int i=0;i<n;i++) I[i][i]=data;
+    return I;
+}
+
+template <typename T> vector<vector<T> > eye(vector<T> data){
+    vector<vector<T> > I(data.size(), vector<T>(data.size(), (T)0.0));
+    for(int i=0;i<data.size();i++) I[i][i]=data[i];
+    return I;
+}
+
+tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > mat, double toler=1e-12, bool det=false);
 
 struct nodo{
     int id;
@@ -85,32 +97,14 @@ struct nodo{
     }
 
     ~nodo(){}
-};
 
-struct nodos{
-    int n_dims;
-    int n_nodos;
-
-    vector<int> indices;
-    vector<vector<double> > posiciones;
-
-    double cond_dirichlet;
-
-    //nada conocido
-    nodos(int n_dims_=0):n_nodos(0), indices(vector<int>(0)), posiciones(vector<vector<double> >(n_nodos, vector<double>(n_dims, 0.0))), n_dims(n_dims_){}
-
-    //solo alguno de los 3 conocidos
-    nodos(int n_dims_, int c_nodos):n_nodos(c_nodos), indices(vector<int>(c_nodos)), posiciones(vector<vector<double> >(c_nodos, vector<double>(3, 0.0))), n_dims(n_dims_){}
-    nodos(int n_dims_, vector<int> c_indices):n_nodos(indices.size()), indices(c_indices), posiciones(vector<vector<double> >(c_indices.size(), vector<double>(3, 0.0))), n_dims(n_dims_){}
-    nodos(int n_dims_, vector<vector<double> > c_posiciones):n_nodos(c_posiciones.size()), indices(vector<int>(c_posiciones.size())), posiciones(c_posiciones), n_dims(n_dims_){}
-
-    //solo 1 desconocido
-    nodos(int n_dims_, int c_nodos, vector<int> c_indices):n_nodos(c_nodos), indices(vector<int>(c_indices)), posiciones(vector<vector<double> >(c_nodos, vector<double>(3, 0.0))), n_dims(n_dims_){}
-    nodos(int n_dims_, int c_nodos, vector<vector<double> > c_posiciones):n_nodos(c_nodos), indices(vector<int>(c_nodos)), posiciones(c_posiciones), n_dims(n_dims_){}
-    nodos(int n_dims_, vector<int> c_indices, vector<vector<double> > c_posiciones):n_nodos(c_indices.size()), indices(c_indices), posiciones(c_posiciones), n_dims(n_dims_){}
-
-    //ningún desconocido
-    nodos(int n_dims_, int c_nodos, vector<int> c_indices, vector<vector<double> > c_posiciones):n_nodos(c_nodos), indices(c_indices), posiciones(c_posiciones), n_dims(n_dims_){}
+    void ver(){
+        cout<<"id: "<<id<<", posicion: ";
+        for(int j=0;j<posicion.size();j++){
+            cout<<posicion[j]<<", ";
+        }
+        cout<<"DIRICHLET: "<<get<0>(cond_dirichlet)<<", "<<get<1>(cond_dirichlet)<<endl;
+    }
 };
 
 struct material{
@@ -119,6 +113,17 @@ struct material{
     double k;
 
     vector<vector<double> > D;
+
+    void ver(){
+        cout<<"neuman: "<<cond_neuman<<", nombre: "<<nombre<<", k: "<<k<<endl;
+        cout<<"MATIZ D:"<<endl;
+        for(auto a:D){
+            for(auto b:a){
+                cout<<b<<", ";
+            }
+            cout<<endl;
+        }
+    }
 };
 
 class elemento{
@@ -132,7 +137,6 @@ public:
     struct material material;
     double Q;
     vector<vector<double> > nodos_posiciones;
-
 
     elemento(int dims, int nodos, int n_ptos_gauss_rigidez_, int n_ptos_gauss_fuerza_, string geo):n_dims(dims), n_nodos(nodos), geometria(geo), n_ptos_gauss_rigidez(n_ptos_gauss_rigidez_), n_ptos_gauss_fuerza(n_ptos_gauss_fuerza_){}
 
@@ -150,8 +154,12 @@ public:
     vector<double> vector_fuerza_elemental() const;
 
     virtual ~elemento() {}
+
+    void ver();
 };
 
 tuple<vector<vector<double> >, vector<double> > puntos_pesos_gauss(int n, string geo);
+
+
 
 #endif

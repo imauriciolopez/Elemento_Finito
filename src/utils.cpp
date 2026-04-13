@@ -34,6 +34,9 @@ vector<double> factorizacion_choleski_llt(vector<vector<double> > arri, vector<d
             if(i==j){
                 if(arri[i][i]-suma<0){
                     cout<<"EEEERRRRROR"<<endl;
+                    cout<<i<<endl;
+                    cout<<j<<endl;
+                    cout<<n_elements<<endl;
                 }
                 mat[i][j]=sqrt(arri[i][i]-suma);
             }
@@ -243,11 +246,25 @@ tuple<vector<vector<double> >, vector<double> > puntos_pesos_gauss(int n, string
 
 }
 
-tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > mat, double toler){
+tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > mat, double toler, bool det){
     //caso matriz cuadrada
     int n=mat.size(), m=mat[0].size();
     if(n>3){
         return make_tuple(0.0, vector<vector<double> >{{}});
+    }
+
+    if(det){
+        if(n==1) return make_tuple(mat[0][0], vector<vector<double> >{{}}); 
+        else if(n==2) return make_tuple(mat[0][0]*mat[1][1]
+                                       -mat[0][1]*mat[1][0], 
+                                        vector<vector<double> >{{}}); 
+        else return make_tuple(mat[0][0]*mat[1][1]*mat[2][2]
+                              +mat[0][1]*mat[1][2]*mat[2][0]
+                              +mat[0][2]*mat[1][0]*mat[2][1]
+                              -mat[0][2]*mat[1][1]*mat[2][0]
+                              -mat[0][0]*mat[1][2]*mat[2][1]
+                              -mat[0][1]*mat[1][0]*mat[2][2], 
+                              vector<vector<double> >{{}}); 
     }
 
     if(n==m){
@@ -281,20 +298,20 @@ tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > 
 
     //esto es util cuando el jacobiano no es cuadrado, y esto pasa cua do se hace una proyección de 2 espacios físicos difenretes
     //por ejemplo, si adaptamos una malla 2D a la superficie de una esfera, el jacobiano sería de tamaño 2x3
+    //o mas práctico, si adaptamos una malla 1D a una barra en 2D (posición diagonal), el jacobiano sería 1x2
 
     else{
+        //METODO DE PSEUDOINVERSA
+
         //caso mas filas que columnas
         //se calcula:
         //A^+= (A_T A)^-1 A^T
+        //det=sqrt(det(A_T A))
         if(n>m){
-            return make_tuple(0.0, 
+            tuple<double, vector<vector<double> > > inv=invertir_matriz(multiplicar<double>(transpuesta<double>(mat), mat));
+            return make_tuple(sqrt(get<0>(inv)), 
                                 multiplicar<double>(
-                                    get<1>(invertir_matriz(
-                                        multiplicar<double>(
-                                            transpuesta<double>(mat), 
-                                            mat
-                                        )
-                                    )), 
+                                    get<1>(inv), 
                                     transpuesta<double>(mat)
                                 )
                             );
@@ -302,15 +319,13 @@ tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > 
         //caso mas columnas que filas
         //se calcula:
         //A^+= A^T (A A_T)^-1 
+        //det=sqrt(det(A A_T))
         else{
-            return make_tuple(0.0, 
+            tuple<double, vector<vector<double> > > inv=invertir_matriz(multiplicar<double>(mat, transpuesta<double>(mat)));
+            return make_tuple(sqrt(get<0>(inv)), 
                                 multiplicar<double>(
-                                    transpuesta<double>(mat), 
-                                    get<1>(invertir_matriz(
-                                        multiplicar<double>(mat, 
-                                            transpuesta<double>(mat)
-                                        )
-                                    ))
+                                    transpuesta<double>(mat),
+                                    get<1>(inv)
                                 )
                             );
         }
@@ -319,6 +334,7 @@ tuple<double, vector<vector<double> > > invertir_matriz(vector<vector<double> > 
 
 tuple<double, vector<vector<double> >, vector<vector<double> > > elemento::crear_J(vector<double> rho) const{
     vector<vector<double> > J=multiplicar<double>(DNs(rho, true), nodos_posiciones);
+    //vector<vector<double> > J=multiplicar<double>(nodos_posiciones, DNs(rho, false));
 
     tuple<double, vector<vector<double> > > det_J_inv=invertir_matriz(J);
 
@@ -335,13 +351,13 @@ vector<vector<double> > elemento::matriz_rigidez_elemental() const{
     
     //iteramos sobre todos los puntos de gauss
     for(int punto_gauss=0;punto_gauss<n_ptos_gauss_rigidez;punto_gauss++){
-        
-        //                                                                     ┌calculamos "de golpe" el jacobiano, su inversa y su determinante
+        //    ┌determinante
+        //    |       ┌jacobiano               ┌inversa jacobiano              ┌calculamos "de golpe" el jacobiano, su inversa y su determinante
         tuple<double, vector<vector<double> >, vector<vector<double> > > inf_J=crear_J(get<0>(g_q)[punto_gauss]);
-        
+                
         //                        ┌calculamos la matriz B
-        //                        |                   ┌inversa del jacobiano
-        //                        |                   |              ┌matriz de derivadas
+        //                        |                    ┌inversa del jacobiano
+        //                        |                    |               ┌matriz de derivadas
         vector<vector<double> > B=multiplicar<double>(get<2>(inf_J), DNs(get<0>(g_q)[punto_gauss], true));
         
         //                      ┌calculamos el producto D B
@@ -350,7 +366,7 @@ vector<vector<double> > elemento::matriz_rigidez_elemental() const{
         vector<vector<double> > B_T_D_B=multiplicar<double>(transpuesta<double>(B), D_B);
         //                      ┌calculamos el producto B_T D B det|J| w_p
         vector<vector<double> > B_T_D_B_detJ_W=multiplicar<double>(B_T_D_B, fabs(get<0>(inf_J))*get<1>(g_q)[punto_gauss]);
-        
+
         //sumamos punto por punto la matriz K obtenida a la matriz de rigidez elemental
         for(int i=0;i<n_nodos;i++){
             for(int j=0;j<n_nodos;j++){
@@ -388,3 +404,24 @@ vector<double> elemento::vector_fuerza_elemental() const{
     return f_local;
 }
 
+void elemento::ver(){
+    cout<<"GEO-> "<<geometria<<endl;
+    cout<<"n dims-> "<<n_dims<<endl;
+    cout<<"n nodos-> "<<n_nodos<<endl;
+    cout<<"n pts gauss vect fuerza-> "<<n_ptos_gauss_fuerza<<endl;
+    cout<<"n pts gauss mat rigidez-> "<<n_ptos_gauss_rigidez<<endl;
+    cout<<"NODOS:"<<endl;
+    for(int i=0;i<n_nodos;i++){
+        nodos[i]->ver();
+    }
+    cout<<"MATERIAL:"<<endl;
+    material.ver();
+    cout<<"Q: "<<Q<<endl;
+    cout<<"MATRIZ POSICIONES:"<<endl;
+    for(auto a:nodos_posiciones){
+        for(auto b:a){
+            cout<<b<<", ";
+        }
+        cout<<endl;
+    }
+}

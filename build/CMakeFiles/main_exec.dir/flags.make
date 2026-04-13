@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/Users/imauriciolopez/Google Drive/Mi unidad/codigos_en_c/FEM/include"
 
-CXX_FLAGSarm64 = -std=gnu++20 -arch arm64 -fopenmp
+CXX_FLAGSarm64 = -g -std=gnu++20 -arch arm64 -fopenmp
 
-CXX_FLAGS = -std=gnu++20 -arch arm64 -fopenmp
+CXX_FLAGS = -g -std=gnu++20 -arch arm64 -fopenmp
 
